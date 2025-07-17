@@ -1,0 +1,94 @@
+Count the Number of Balanced Substrings
+
+Description:
+Given a string s consisting only of characters 'L' (Left) and 'R' (Right), a balanced substring is a contiguous substring where the number of 'L's and 'R's are equal.
+
+Task:
+Write a program to count how many balanced substrings exist in the given string. The substrings must be contiguous and non-overlapping for the count.
+
+Input:
+
+A single string s (1 ≤ length ≤ 1000) containing only 'L' and 'R' characters.
+
+Output:
+
+An integer representing the count of balanced substrings.
+
+Examples:
+
+Input:
+"RLRRLLRLRL"
+Output:
+4
+Explanation:
+The balanced substrings are:
+
+"RL" (positions 0-1)
+
+"RRLL" (positions 2-5)
+
+"RL" (positions 6-7)
+
+"RL" (positions 8-9)
+
+Input:
+"LLLLRRRR"
+Output:
+1
+Explanation:
+The entire string is balanced (4 'L's and 4 'R's).
+---->
+CODE:import java.util.*;
+public class Main
+{
+    public static void Arr(String str){
+        int balance=0;
+	    int count=0;
+	    for(int i=0;i<=str.length();i++){
+	        char ch=str.charAt(i);
+	        if(ch=='L'){
+	            balance++;
+	        }else if(ch=='R'){
+	            balance--;
+	        }
+	        if(balance==0){
+	            count++;
+	        }
+	    }
+	      System.out.println(count);
+    }
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    String input = sc.nextLine();
+	    Arr(input);
+	}
+}
+___________________________________________________________________________________________________
+Magic Number Check
+Problem:
+Determine if a number is "magic" (a number where the recursive sum of its digits eventually becomes 1).
+Example:
+Input: 19 → Output: true (1+9=10 → 1+0=1)
+Input: 22 → Output: false
+-->import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        while(a>9){
+            int sum=0;
+            while(a>0){
+            sum=sum+a%10;
+            a=a/10;
+        }
+        a=sum;
+    }
+    if(a==1){
+    System.out.println("True");
+    }
+    else{
+           System.out.println("False"); 
+    }
+}
+}
+___________________________________________________________________________________________________
